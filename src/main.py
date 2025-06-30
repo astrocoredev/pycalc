@@ -1,8 +1,10 @@
+import sys
+
 from tokeniser import Tokeniser
 from parser import Parser
 
 def main():
-    tokens = Tokeniser("21 + 3 * 43")
+    tokens = Tokeniser(sys.argv[1])
     tokens = tokens.tokenise()
     parser = Parser(tokens)
     parsed = parser.parse_add()
