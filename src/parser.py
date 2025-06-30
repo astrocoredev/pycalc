@@ -18,10 +18,10 @@ class Node:
                 l = left.eval()
                 r = right.eval()
                 match op:
-                    case '+': return l + r
-                    case '-': return l - r
-                    case '*': return l * r
-                    case '/': return l / r
+                    case '+': return round(l + r, 2)
+                    case '-': return round(l - r, 2)
+                    case '*': return round(l * r, 2)
+                    case '/': return round(l / r, 2)
 
 class Parser:
 
@@ -70,4 +70,4 @@ class Parser:
         return node
     
     def parse_num(self):
-        return Node(num = int(next(self, None)))
+        return Node(num = float(next(self, None)))

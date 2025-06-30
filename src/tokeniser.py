@@ -31,10 +31,10 @@ class Tokeniser:
             match token:
                 case ch if ch.isspace(): continue
                 case '+' | '-' | '*' | '/': self.tokens.append(token)
-                case ch if ch.isdigit():
-                    while num := self.next_if(lambda x: x and x.isdigit()):
+                case ch if ch.isdigit() or ch == '.':
+                    while num := self.next_if(lambda x: x and x.isdigit() or x == '.'):
                         ch += num
-                    self.tokens.append(int(ch))
+                    self.tokens.append(float(ch))
                 case _: raise Exception("L")
 
         return self.tokens
